@@ -1,0 +1,16 @@
+footer {
+  background-color: $primary-color;
+  padding: 0 0 30px 0;
+  font-size: 14px;
+
+  .credits {
+    text-align: center;
+    font-size: 13px;
+    color: $light-color-text;
+  }
+
+  .credits a {
+    color: $light-color-text;
+  }
+
+}

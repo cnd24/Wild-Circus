@@ -1,12 +1,9 @@
 .nav-item a {
   text-transform: uppercase;
-}
-
-.bg-light {
-  background-color: white;
+  font-family: $font-body;
+  font-weight: 600;
 }
 
 .navbar {
-  background-color: transparent;
-  width: 100%;
+  background-color: black;
 }

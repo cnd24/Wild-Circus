@@ -38,16 +38,18 @@
 
 
   h2 {
-    color: #fff;
+    color: $light-color-text;
     margin-bottom: 30px;
     font-size: 48px;
-    font-weight: 700;
+    font-weight: 500;
+    font-family: $font-title;
   }
 
   p {
     width: 80%;
     margin: 0 auto 30px auto;
-    color: white;
+    color: $light-color-text;
+    font-family: $font-body;
   }
 
   .carousel-fade {
@@ -74,11 +76,12 @@
   display: inline-block;
   padding: 8px 32px;
   border-radius: 50px;
-  color: white;
+  color: $light-color-text;
   background: $secondary-color;
 }
 
 .carousel-content .btn-get-started:hover {
   background: $third-color;
-  color: $secondary-color;
+  color: $primary-color;
+  text-decoration: none;
 }
