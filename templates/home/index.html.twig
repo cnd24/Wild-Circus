@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Wild Circus Company{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/wilder/Documents/Checkpoints/checkpoint4/wildCircus/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/wilder/Documents/Checkpoints/checkpoint4/wildCircus/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <section id="intro">
+        <div class="intro-container">
+            <div id="introCarousel" class="carousel carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-background d-flex justify-content-center">
+                            <img src="https://cdn.pixabay.com/photo/2015/07/02/10/16/circus-828680_960_720.jpg" alt="">
+                        </div>
+                        <div class="carousel-container d-flex justify-content-center align-items-center">
+                            <div class="carousel-content text-center">
+                                <h2>Une expérience inoubliable</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <a href="#" class="btn-get-started scrollto m-2">Découvrir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

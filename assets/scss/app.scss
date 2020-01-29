@@ -1,7 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 @import "vars";
+@import "home";
+@import "navbar";
+@import "header";
 
 body {
-    background-color: lightgray;
+    background-color: white;
 }
 
