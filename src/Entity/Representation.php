@@ -29,7 +29,7 @@ class Representation
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="representations")
      */
-    private $Event;
+    private $event;
 
     public function getId(): ?int
     {
@@ -62,12 +62,12 @@ class Representation
 
     public function getEvent(): ?Event
     {
-        return $this->Event;
+        return $this->event;
     }
 
-    public function setEvent(?Event $Event): self
+    public function setEvent(?Event $event): self
     {
-        $this->Event = $Event;
+        $this->event = $event;
 
         return $this;
     }

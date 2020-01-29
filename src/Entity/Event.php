@@ -39,7 +39,7 @@ class Event
     private $picture;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Representation", mappedBy="Event")
+     * @ORM\OneToMany(targetEntity="App\Entity\Representation", mappedBy="event")
      */
     private $representations;
 

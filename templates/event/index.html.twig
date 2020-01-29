@@ -38,15 +38,20 @@
 
             <div class="row porfolio-container">
                 {% for event in events %}
-                <div class="col-lg-4 col-md-6 event-item filter-app">
-                    <div class="event-wrap m-0">
-                        <img src="{{ event.picture }}" class="img-fluid" alt="">
-                        <div class="event-info">
-                            <h4><a href="#">{{ event.name }}</a></h4>
-                            <p class="p-2">{{ event.description|slice(0,150) }}</p>
+
+                    <div class="col-lg-4 col-md-6 event-item filter-app">
+                        <div class="event-wrap m-0">
+                            <img src="{{ event.picture }}" class="img-fluid" alt="">
+                            <div class="event-info">
+                                <h4><a href="#">{{ event.name }}</a></h4>
+                                <p class="p-2">{{ event.description|slice(0,150) }}</p>
+                                {% for representation in event.representations %}
+                                <p>{{ representation.city }}</p>
+                                <p>{{ representation.date|date('d/m/Y à H:i') }}</p>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
             </div>
 

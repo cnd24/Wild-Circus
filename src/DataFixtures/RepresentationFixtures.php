@@ -15,14 +15,13 @@ class RepresentationFixtures extends Fixture implements DependentFixtureInterfac
     {
             $faker = Faker\Factory::create('fr_FR');
 
-            for ($i=0; $i<20; $i++){
+            for ($i=0; $i<30; $i++){
                 $representation = new Representation();
                 $representation->setCity($faker->city);
                 $representation->setDate($faker->dateTime);
                 $manager->persist($representation);
                 $representation->setEvent($this->getReference('event'.rand(0,19)));
             }
-
 
         $manager->flush();
     }
