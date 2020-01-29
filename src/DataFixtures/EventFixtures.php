@@ -30,11 +30,13 @@ class EventFixtures extends Fixture
 
             for ($i=0; $i<20; $i++){
                 $event = new Event();
-                $event->setName($faker->word);
+                $event->setName($faker->sentence(3));
                 $event->setDescription($faker->paragraph);
                 $event->setDuration($faker->numberBetween(30, 120));
                 $event->setPicture(self::IMG[rand(0,9)]);
+
                 $manager->persist($event);
+                $this->addReference('event'.$i, $event);
             }
 
 
