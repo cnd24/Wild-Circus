@@ -28,29 +28,27 @@
         <!--==========================
               Spectacles Section
             ============================-->
+
     <section id="events" class="section-bg">
         <div class="container">
 
-            <header class="section-header">
-                <h3 class="section-title">Nos spectacles</h3>
+            <header>
+                <h3>Nos spectacles</h3>
             </header>
 
-
-
-                <div class="row porfolio-container">
-                    {% for event in events %}
-                    <div class="col-lg-4 col-md-6 event-item filter-app">
-                        <div class="event-wrap m-0">
-                            <img src="{{ event.picture }}" class="img-fluid" alt="">
-                            <div class="event-info">
-                                <h4><a href="#">{{ event.name }}</a></h4>
-                                <p class="p-2">{{ event.description|slice(0,150) }}</p>
-                            </div>
+            <div class="row porfolio-container">
+                {% for event in events %}
+                <div class="col-lg-4 col-md-6 event-item filter-app">
+                    <div class="event-wrap m-0">
+                        <img src="{{ event.picture }}" class="img-fluid" alt="">
+                        <div class="event-info">
+                            <h4><a href="#">{{ event.name }}</a></h4>
+                            <p class="p-2">{{ event.description|slice(0,150) }}</p>
                         </div>
                     </div>
-                    {% endfor %}
-
                 </div>
+                {% endfor %}
+            </div>
 
 
         </div>

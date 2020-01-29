@@ -1,6 +1,13 @@
 #events {
   padding: 60px 0;
 
+  h3 {
+    font-family: $font-title;
+    border-left: $primary-color 5px solid;
+    padding-left: 20px;
+    margin: 100px 0;
+  }
+
   .event-item {
     position: relative;
     overflow: hidden;
@@ -50,6 +57,7 @@
               margin-bottom: 14px;
               padding-bottom: 0;
               text-transform: capitalize;
+              font-family: $font-title;
 
                 a {
                   color: #fff;

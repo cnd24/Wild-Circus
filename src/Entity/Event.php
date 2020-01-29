@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,16 @@ class Event
      * @ORM\Column(type="string", length=255)
      */
     private $picture;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Representation", mappedBy="Event")
+     */
+    private $representations;
+
+    public function __construct()
+    {
+        $this->representations = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +97,37 @@ class Event
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Representation[]
+     */
+    public function getRepresentations(): Collection
+    {
+        return $this->representations;
+    }
+
+    public function addRepresentation(Representation $representation): self
+    {
+        if (!$this->representations->contains($representation)) {
+            $this->representations[] = $representation;
+            $representation->setEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRepresentation(Representation $representation): self
+    {
+        if ($this->representations->contains($representation)) {
+            $this->representations->removeElement($representation);
+            // set the owning side to null (unless already changed)
+            if ($representation->getEvent() === $this) {
+                $representation->setEvent(null);
+            }
+        }
 
         return $this;
     }
