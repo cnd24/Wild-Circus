@@ -1,13 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Artist{% endblock %}
+{% block title %}Admin | Modifier un artiste{% endblock %}
+
+{% block header %}
+    {% include '/include/_navbar_admin.html.twig' %}
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Artist</h1>
+    <div class="container">
 
-    {{ include('artist/_form.html.twig', {'button_label': 'Update'}) }}
+        <h2><i class="fas fa-pencil-alt mr-3"></i>Modifier un artiste</h2>
 
-    <a href="{{ path('artist_index') }}">back to list</a>
+        {{ include('artist/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    {{ include('artist/_delete_form.html.twig') }}
+        {{ include('artist/_delete_form.html.twig') }}
+
+        <a href="{{ path('artist_index_admin') }}" class="btn-get-started m-3"><i class="fas fa-angle-left mr-3"></i>Retour à la liste</a>
+
+    </div>
 {% endblock %}
