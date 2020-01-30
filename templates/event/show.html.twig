@@ -50,11 +50,14 @@
                             voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus
                             eum error. Et repudiandae eum iste qui et ut ab alias.</p>
                         {% for representation in representations %}
-                            <ul>
-                                <li class="pb-1"><i class="fas fa-map-marker-alt mr-2"></i>{{ representation.city }}
+                            <ul class="representation-dates">
+
+                                <li class="pb-3">
+                                    <h2 class="m-0"> Le {{ representation.date|date('d/m/Y - H:i') }}</h2>
                                 </li>
-                                <li class="pb-1"><i
-                                            class="far fa-calendar-alt mr-2 ml-5"></i>{{ representation.date|date('d/m/Y à H:i') }}
+
+                                <li class="pb-3">
+                                    <h2 class="m-0">à {{ representation.city }}</h2>
                                 </li>
                             </ul>
                         {% endfor %}
@@ -101,27 +104,38 @@
             </div>
 
 
-            <div id="artist">
+            <section id="artists" >
                 <div class="container">
-                      <h3>Artistes en scène ...</h3>
+                    <div class="section-header">
+                        <h3>Artistes en scène</h3>
+                        <p class="mb-5">Retrouvez tous ces artistes lors de la tournée de ce spectacle incontournable.</p>
+                    </div>
                 </div>
+
                 <div class="container">
                     <div class="row">
-                    {% for artist in event.artists %}
-                        <div class="col-md-6 col-md-4 col-lg-3">
-                            <div class="artists-block bottom">
-                                <img src="{{artist.picture}}" class="img-responsive" alt="img">
-                                <div class="artists-content text-center">
-                                    <h4>{{artist.name}}</h4>
-                                    <span>{{artist.performance}}</span>
+
+                        {% for artist in event.artists %}
+
+                            <div class="col-lg-3 col-md-4 mb-5">
+                                <div class="artist-item">
+                                    <img src="{{ artist.picture }}" alt="{{artist.name}}">
+                                    <div class="artist-overlay">
+                                        <div class="artist-info">
+                                            <h3 class="mt-2">{{artist.name}}</h3>
+                                            <h4>{{artist.performance}}</h4>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
                         {% endfor %}
 
                     </div>
+
                 </div>
-            </div>
+            </section>
+
 
         </section>
 
