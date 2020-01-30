@@ -40,7 +40,9 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
 
                 $manager->persist($event);
                 $this->addReference('event'.$i, $event);
-                $event->addArtist($this->getReference('artist'.$i));
+                $event->addArtist($this->getReference('artist'.(rand(0,59))));
+                $event->addArtist($this->getReference('artist'.(rand(0,59))));
+                $event->addArtist($this->getReference('artist'.(rand(0,59))));
             }
 
 
