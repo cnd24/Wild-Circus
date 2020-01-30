@@ -25,28 +25,6 @@ class RepresentationController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="representation_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $representation = new Representation();
-        $form = $this->createForm(RepresentationType::class, $representation);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($representation);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('representation_index');
-        }
-
-        return $this->render('representation/new.html.twig', [
-            'representation' => $representation,
-            'form' => $form->createView(),
-        ]);
-    }
 
     /**
      * @Route("/{id}", name="representation_show", methods={"GET"})
@@ -58,37 +36,4 @@ class RepresentationController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="representation_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Representation $representation): Response
-    {
-        $form = $this->createForm(RepresentationType::class, $representation);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('representation_index');
-        }
-
-        return $this->render('representation/edit.html.twig', [
-            'representation' => $representation,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="representation_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Representation $representation): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$representation->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($representation);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('representation_index');
-    }
 }

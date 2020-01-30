@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RepresentationRepository")
@@ -23,6 +25,7 @@ class Representation
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\DateTime
      */
     private $date;
 
@@ -72,8 +75,4 @@ class Representation
         return $this;
     }
 
-//    public function getCityAndDate(): ?string
-//    {
-//        return $this->getCity() . ', le ' . $this->getDate()->format('d-m-Y à H:i');
-//    }
 }

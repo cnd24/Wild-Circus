@@ -21,8 +21,6 @@
                 <td>{{ representation.city }}</td>
                 <td>{{ representation.date ? representation.date|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('representation_show', {'id': representation.id}) }}">show</a>
-                    <a href="{{ path('representation_edit', {'id': representation.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +31,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('representation_new') }}">Create new</a>
 {% endblock %}
