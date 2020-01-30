@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
@@ -20,21 +21,32 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le nom du spectacle est obligatoire")
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Le nom doit être au plus {{ limit }} caractères de long")
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="La description du spectacle est obligatoire")
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="La durée du spectacle est obligatoire")
+     * @Assert\Type(
+     *     type="integer",
+     *     message="La durée {{ value }} doit être en chiffre."
+     * )
      */
     private $duration;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="La photo du spectacle est obligatoire")
      */
     private $picture;
 

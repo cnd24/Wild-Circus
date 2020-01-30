@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Event{% endblock %}
+{% block title %}Admin | Créer un spectacle{% endblock %}
+
+{% block header %}
+    {% include '/include/_navbar_admin.html.twig' %}
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Event</h1>
+    <div class="container">
+        <h2>Créer un spectacle</h2>
 
-    {{ include('event/_form.html.twig') }}
+        {{ include('event/_form.html.twig') }}
 
-    <a href="{{ path('event_index_admin') }}">back to list</a>
+        <a href="{{ path('event_index_admin') }}" class="btn-get-started m-3"><i class="fas fa-angle-left mr-3"></i>Retour à la liste</a>
+    </div>
 {% endblock %}

@@ -1,18 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event{% endblock %}
+{% block title %}Admin | Spectacle{% endblock %}
+
+{% block header %}
+    {% include '/include/_navbar_admin.html.twig' %}
+{% endblock %}
 
 {% block body %}
-    <h1>Event</h1>
 
-    <table class="table">
-        <tbody>
+    <div class="container">
+        <h2>Détail du spectacle</h2>
+        <table class="table">
+            <tbody>
             <tr>
                 <th>Id</th>
                 <td>{{ event.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
+                <th>Nom du spectacle</th>
                 <td>{{ event.name }}</td>
             </tr>
             <tr>
@@ -20,15 +25,17 @@
                 <td>{{ event.description }}</td>
             </tr>
             <tr>
-                <th>Duration</th>
+                <th>Durée <em>(en min)</em></th>
                 <td>{{ event.duration }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <a href="{{ path('event_index_admin') }}">back to list</a>
+        <a href="{{ path('event_index_admin') }}" class="btn-get-started m-3"><i class="fas fa-angle-left mr-3"></i>Retour à la liste</a>
 
-    <a href="{{ path('event_edit_admin', {'id': event.id}) }}">edit</a>
+        <a href="{{ path('event_edit_admin', {'id': event.id}) }}" class="btn-get-started m-3"><i class="fas fa-pencil-alt mr-3"></i>Modifier</a>
 
-    {{ include('event/_delete_form.html.twig') }}
+        {{ include('event/_delete_form.html.twig') }}
+
+    </div>
 {% endblock %}

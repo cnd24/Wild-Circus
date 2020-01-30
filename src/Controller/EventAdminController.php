@@ -42,7 +42,7 @@ class EventAdminController extends AbstractController
             $entityManager->persist($event);
             $entityManager->flush();
 
-            return $this->redirectToRoute('event_index');
+            return $this->redirectToRoute('event_index_admin');
         }
 
         return $this->render('event/new_admin.html.twig', [

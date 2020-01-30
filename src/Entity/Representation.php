@@ -71,4 +71,9 @@ class Representation
 
         return $this;
     }
+
+//    public function getCityAndDate(): ?string
+//    {
+//        return $this->getCity() . ', le ' . $this->getDate()->format('d-m-Y à H:i');
+//    }
 }
