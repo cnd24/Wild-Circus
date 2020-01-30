@@ -55,6 +55,16 @@ class Event
      */
     private $representations;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $priceChildren;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $priceAdult;
+
     public function __construct()
     {
         $this->representations = new ArrayCollection();
@@ -140,6 +150,30 @@ class Event
                 $representation->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPriceChildren(): ?int
+    {
+        return $this->priceChildren;
+    }
+
+    public function setPriceChildren(?int $priceChildren): self
+    {
+        $this->priceChildren = $priceChildren;
+
+        return $this;
+    }
+
+    public function getPriceAdult(): ?int
+    {
+        return $this->priceAdult;
+    }
+
+    public function setPriceAdult(?int $priceAdult): self
+    {
+        $this->priceAdult = $priceAdult;
 
         return $this;
     }

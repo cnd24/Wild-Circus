@@ -33,6 +33,8 @@ class EventFixtures extends Fixture
                 $event->setName($faker->sentence(3));
                 $event->setDescription($faker->paragraph);
                 $event->setDuration($faker->numberBetween(30, 120));
+                $event->setPriceChildren($faker->numberBetween(10,15));
+                $event->setPriceAdult($faker->numberBetween(20, 30));
                 $event->setPicture(self::IMG[rand(0,9)]);
 
                 $manager->persist($event);

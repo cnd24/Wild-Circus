@@ -23,6 +23,8 @@ class EventType extends AbstractType
             ->add('description', TextareaType::class, ['label' => 'Description'])
             ->add('duration', IntegerType::class, ['label' => 'Durée (en min)'])
             ->add('picture', TextType::class, ['label' => 'Photo'])
+            ->add('priceChildren', IntegerType::class, ['label' => 'Prix enfant'])
+            ->add('priceAdult', IntegerType::class, ['label' => 'Prix adulte'])
         ;
     }
 

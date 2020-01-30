@@ -25,7 +25,6 @@ class Representation
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\DateTime
      */
     private $date;
 

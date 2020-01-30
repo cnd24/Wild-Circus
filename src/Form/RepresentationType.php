@@ -20,7 +20,7 @@ class RepresentationType extends AbstractType
             ->add('city', TextType::class, ['label' => 'Ville'])
             ->add('date', DateTimeType::class, [
                 'label' => 'Date',
-                'data' => new DateTime,
+                'data' => new DateTime(),
                 ])
             ->add('event', EntityType::class, [
                 'class' => Event::class,
