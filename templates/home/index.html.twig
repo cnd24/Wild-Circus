@@ -10,7 +10,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="carousel-background d-flex justify-content-center">
-                            <img src="https://cdn.pixabay.com/photo/2015/07/02/10/16/circus-828680_960_720.jpg" alt="">
+                            <img src="{{asset('/build/circus1.jpg')}}" alt="Image de la home page">
                         </div>
                         <div class="carousel-container d-flex justify-content-center align-items-center">
                             <div class="carousel-content text-center">
@@ -53,12 +53,14 @@
         <div class="container">
             <div class="row">
                 {% for artist in artists %}
-                    <div class="col-md-6 col-md-4 col-lg-3">
-                        <div class="artists-block bottom">
-                            <img src="{{artist.picture}}" class="img-responsive" alt="img">
-                            <div class="artists-content text-center">
-                                <h4>{{artist.name}}</h4>
-                                <span>{{artist.performance}}</span>
+                    <div class="col-lg-3 col-md-4 mb-5">
+                        <div class="artist-item">
+                            <img src="{{ artist.picture }}" alt="{{artist.name}}">
+                            <div class="artist-overlay">
+                                <div class="artist-info">
+                                    <h3>{{artist.name}}</h3>
+                                    <h4>{{artist.performance}}</h4>
+                                </div>
                             </div>
                         </div>
                     </div>

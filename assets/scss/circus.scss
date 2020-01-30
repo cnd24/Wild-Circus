@@ -1,0 +1,58 @@
+#history {
+  padding: 60px 0 40px 0;
+
+  .box {
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 0 10px 40px 10px;
+    background: $light-bg-color;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .icon {
+    margin: 0 auto 15px auto;
+    padding-top: 12px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: $secondary-color;
+  }
+
+  .title {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: $primary-color;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 28px;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+}
+
+.circus-img::before {
+  display: none;
+}
+
+.img-circus::after{
+  display: none;
+}
+
+.second-box {
+  margin-top: 60px;
+}
+
+

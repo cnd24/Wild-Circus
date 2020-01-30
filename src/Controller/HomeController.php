@@ -22,4 +22,12 @@ class HomeController extends AbstractController
             'artists' => $someArtists,
         ]);
     }
+
+    /**
+     * @Route("/circus", name="circus")
+     */
+    public function showCircus()
+    {
+        return $this->render('home/circus.html.twig');
+    }
 }
