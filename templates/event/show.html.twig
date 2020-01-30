@@ -27,7 +27,7 @@
         </div>
     </section>
 
-    <div class="container">
+    < class="container">
         <section id="event">
 
             <h3>{{ event.name }}</h3>
@@ -67,6 +67,9 @@
             <div class="section-header">
                 <h3>Informations</h3>
             </div>
+            {% for artist in event.artists %}
+                {{ dump(artist.name) }}
+            {% endfor %}
 
             <div class="row infos mb-2 text-center">
 
@@ -94,6 +97,29 @@
                 </div>
 
             </div>
+
+            <section id="team">
+                <div class="section-header">
+                    <h3>Artistes en scène</h3>
+                </div>
+
+                <div class="row">
+                    {% for artist in event.artists %}
+                        <div class="col-lg-3 col-md-6 wow fadeInUp">
+                            <div class="member text-center">
+                                <img src="https://images.unsplash.com/photo-1511715282680-fbf93a50e721?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>{{ artist.name }}</h4>
+                                        <span>{{ artist.performance }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+
 
         </section>
 
