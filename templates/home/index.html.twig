@@ -46,9 +46,24 @@
         </div>
     </section>
 
-    <section class="artistes-home">
-        <div>
-            <h2>Artistes à la une</h2>
+    <div id="artist" class="bg-section py-5">
+        <div class="container">
+            <h3>Artistes à la une ...</h3>
         </div>
-    </section>
+        <div class="container">
+            <div class="row">
+                {% for artist in artists %}
+                    <div class="col-md-6 col-md-4 col-lg-3">
+                        <div class="artists-block bottom">
+                            <img src="{{artist.picture}}" class="img-responsive" alt="img">
+                            <div class="artists-content text-center">
+                                <h4>{{artist.name}}</h4>
+                                <span>{{artist.performance}}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
