@@ -40,6 +40,9 @@ class RepresentationAdminController extends AbstractController
             $entityManager->persist($representation);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Représentation ajoutée avec succès');
+
+
             return $this->redirectToRoute('representation_index_admin');
         }
 
@@ -70,6 +73,9 @@ class RepresentationAdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Représentation modifiée avec succès');
+
+
             return $this->redirectToRoute('representation_index_admin');
         }
 
@@ -88,6 +94,9 @@ class RepresentationAdminController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($representation);
             $entityManager->flush();
+
+            $this->addFlash('danger', 'Représentation supprimée avec succès');
+
         }
 
         return $this->redirectToRoute('representation_index_admin');

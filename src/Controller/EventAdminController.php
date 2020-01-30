@@ -42,6 +42,9 @@ class EventAdminController extends AbstractController
             $entityManager->persist($event);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Spectacle ajouté avec succès');
+
+
             return $this->redirectToRoute('event_index_admin');
         }
 
@@ -75,6 +78,9 @@ class EventAdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Spectacle modifié avec succès');
+
+
             return $this->redirectToRoute('event_index_admin');
         }
 
@@ -93,6 +99,9 @@ class EventAdminController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($event);
             $entityManager->flush();
+
+            $this->addFlash('danger', 'Spectacle supprimé avec succès');
+
         }
 
         return $this->redirectToRoute('event_index_admin');
