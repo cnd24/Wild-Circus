@@ -24,9 +24,25 @@
             </div>
         </div>
     </section>
-    <section>
-        <div>
-            <h2>Nos spectacles à la une</h2>
+    <section id="events">
+        <div class="container">
+            <header>
+                <h3>Spectacles à la une</h3>
+            </header>
+
+            <div class="row porfolio-container">
+                {% for event in events %}
+                    <div class="col-lg-4 col-md-6 event-item filter-app">
+                        <div class="event-wrap m-0">
+                            <img src="{{ event.picture }}" class="img-fluid" alt="">
+                            <div class="event-info">
+                                <h4><a href="{{ path('event_show', {'id': event.id}) }}">{{ event.name }}</a></h4>
+                                <p class="p-2">{{ event.description|slice(0,150) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
 
