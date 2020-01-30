@@ -65,9 +65,15 @@ class Event
      */
     private $priceAdult;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Artist", mappedBy="events")
+     */
+    private $artists;
+
     public function __construct()
     {
         $this->representations = new ArrayCollection();
+        $this->artists = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -174,6 +180,34 @@ class Event
     public function setPriceAdult(?int $priceAdult): self
     {
         $this->priceAdult = $priceAdult;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Artist[]
+     */
+    public function getArtists(): Collection
+    {
+        return $this->artists;
+    }
+
+    public function addArtist(Artist $artist): self
+    {
+        if (!$this->artists->contains($artist)) {
+            $this->artists[] = $artist;
+            $artist->addEvent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtist(Artist $artist): self
+    {
+        if ($this->artists->contains($artist)) {
+            $this->artists->removeElement($artist);
+            $artist->removeEvent($this);
+        }
 
         return $this;
     }
