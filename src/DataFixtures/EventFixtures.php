@@ -2,12 +2,13 @@
 
 namespace App\DataFixtures;
 
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Faker;
 use App\Entity\Event;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class EventFixtures extends Fixture
+class EventFixtures extends Fixture implements DependentFixtureInterface
 {
     const IMG = [
         'https://images.unsplash.com/photo-1547423753-bff7561e2956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
@@ -39,9 +40,16 @@ class EventFixtures extends Fixture
 
                 $manager->persist($event);
                 $this->addReference('event'.$i, $event);
+                $event->addArtist($this->getReference('artist'.$i));
             }
 
 
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [ArtistFixtures::class];
+
     }
 }

@@ -67,6 +67,9 @@
             <div class="section-header">
                 <h3>Informations</h3>
             </div>
+            {% for artist in event.artists %}
+                {{ dump(artist.name) }}
+            {% endfor %}
 
             <div class="row infos mb-2 text-center">
 
@@ -95,7 +98,35 @@
 
             </div>
 
+
+
+            <div id="artist">
+
+                <div class="container">
+                      <h3>Artistes en scène ...</h3>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                    {% for artist in event.artists %}
+                        <div class="col-md-6 col-md-4 col-lg-3">
+                            <div class="artists-block bottom">
+                                <img src="{{asset('/build/1.jpg')}}" class="img-responsive" alt="img">
+                                <div class="artists-content text-center">
+                                    <h4>{{artist.name}}</h4>
+                                    <span>{{artist.performance}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
         </section>
+
+
 
     </div>
 
