@@ -5,8 +5,23 @@
 @import "header";
 @import "footer";
 @import "events";
+@import "event";
 
 body {
     background-color: white;
-}
 
+    h2 {
+        font-family: $font-title;
+        padding-left: 20px;
+        margin: 50px 0;
+        letter-spacing: 0.1em;
+    }
+
+    h3 {
+        font-family: $font-title;
+        border-left: $primary-color 5px solid;
+        padding-left: 20px;
+        margin: 100px 0;
+    }
+
+}

@@ -1,34 +1,66 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Event{% endblock %}
+{% block title %}Spectacle | Wild Circus{% endblock %}
 
 {% block body %}
-    <h1>Event</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ event.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ event.name }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ event.description }}</td>
-            </tr>
-            <tr>
-                <th>Duration</th>
-                <td>{{ event.duration }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <section id="intro">
+        <div class="intro-container">
+            <div id="introCarousel" class="carousel carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-background d-flex justify-content-center">
+                            <img src="https://images.unsplash.com/photo-1533106958148-daaeab8b83fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80" alt="">
+                        </div>
+                        <div class="carousel-container d-flex justify-content-center align-items-center">
+                            <div class="carousel-content text-center">
+                                <h2>Spectacle {{ event.name }}</h2>
+                                <p>{{ event.description }}</p>
+                                <a href="mailto:wildcircus@gmail.com" class="btn-get-started scrollto m-2"><i class="fas fa-ticket-alt mr-2"></i>Réserver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <a href="{{ path('event_index') }}">back to list</a>
+    <!--==========================
+     About Us Section
+   ============================-->
+    <section id="event">
 
-    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
+        <div class="container">
 
-    {{ include('event/_delete_form.html.twig') }}
+            <h3>{{event.name}}</h3>
+
+            <div class="row">
+
+                <div class="col-lg-5 col-md-6">
+                    <div class="event-img">
+                        <img src="{{ event.picture }}" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-6">
+                    <div class="event-content pt-3">
+                        <h2 class="mb-5">Un spectacle à ne pas manquer ...</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <p>Aut dolor id. Sint aliquam consequatur ex ex labore. Et quis qui dolor nulla dolores neque. Aspernatur consectetur omnis numquam quaerat. Sed fugiat nisi. Officiis veniam molestiae. Et vel ut quidem alias veritatis repudiandae ut fugit. Est ut eligendi aspernatur nulla voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus eum error. Et repudiandae eum iste qui et ut ab alias.</p>
+                        {% for representation in representations %}
+                        <ul>
+                            <li class="pb-1"><i class="fas fa-map-marker-alt mr-2"></i>{{ representation.city }}</li>
+                            <li class="pb-1"><i class="far fa-calendar-alt mr-2 ml-5"></i>{{ representation.date|date('d/m/Y à H:i') }}</li>
+                        </ul>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section><!-- #about -->
+
+
+
 {% endblock %}

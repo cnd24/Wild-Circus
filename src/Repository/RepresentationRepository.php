@@ -19,32 +19,16 @@ class RepresentationRepository extends ServiceEntityRepository
         parent::__construct($registry, Representation::class);
     }
 
-    // /**
-    //  * @return Representation[] Returns an array of Representation objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Representation
+    public function findDateFromNow(int $id): array
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+
+        $query = $this->createQueryBuilder('r')
+            ->where('CURRENT_DATE() <= r.date')
+            ->andWhere('r.event ='.$id)
+            ->orderBy('r.date', 'ASC');
+
+        return $query->getQuery()->getResult();
     }
-    */
+
 }

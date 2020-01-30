@@ -18,7 +18,7 @@ class RepresentationFixtures extends Fixture implements DependentFixtureInterfac
             for ($i=0; $i<30; $i++){
                 $representation = new Representation();
                 $representation->setCity($faker->city);
-                $representation->setDate($faker->dateTime);
+                $representation->setDate($faker->dateTimeBetween('-1 years', '+1 years'));
                 $manager->persist($representation);
                 $representation->setEvent($this->getReference('event'.rand(0,19)));
             }

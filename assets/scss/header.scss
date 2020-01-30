@@ -68,7 +68,7 @@
 }
 
 
-.carousel-content .btn-get-started {
+.btn-get-started {
   font-family: $font-body;
   font-weight: 500;
   font-size: 16px;
@@ -78,10 +78,29 @@
   border-radius: 50px;
   color: $light-color-text;
   background: $secondary-color;
+
+  &:hover {
+    background: $third-color;
+    color: $primary-color;
+    text-decoration: none;
+  }
+
 }
 
-.carousel-content .btn-get-started:hover {
-  background: $third-color;
-  color: $primary-color;
-  text-decoration: none;
+.btn-delete {
+  font-family: $font-body;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 32px;
+  border-radius: 50px;
+  color: darkred;
+  background: $secondary-color;
+
+  &:hover {
+    background: darkred;
+    color: $light-color-text;
+    text-decoration: none;
+  }
 }
