@@ -14,3 +14,28 @@ footer {
   }
 
 }
+
+
+.back-to-top {
+  position: fixed;
+  background: $third-color;
+  color: $primary-color;
+  padding: 6px 12px 9px 12px;
+  font-size: 16px;
+  border-radius: 2px;
+  right: 15px;
+  bottom: 15px;
+  transition: background 0.5s;
+}
+
+.back-to-top:focus {
+  background: $primary-color;
+  color: #fff;
+  outline: none;
+}
+
+.back-to-top:hover {
+  background: $primary-color;
+  color: #fff;
+}
+
