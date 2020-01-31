@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin | Modifier une représentation{% endblock %}
+
+{% block header %}
+    {% include '/include/_navbar_admin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h2>Modifier une représentation</h2>
+
+    {{ include('representation/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    {{ include('representation/_delete_form.html.twig') }}
+
+    <a href="{{ path('representation_index_admin') }}" class="btn-get-started m-3"><i class="fas fa-angle-left mr-3"></i>Retour à la liste</a>
+</div>
+{% endblock %}

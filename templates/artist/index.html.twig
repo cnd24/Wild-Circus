@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wild Circus | Artistes{% endblock %}
+
+{% block body %}
+
+    <section id="intro">
+        <div class="intro-container">
+            <div id="introCarousel" class="carousel carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-background d-flex justify-content-center">
+                            <img src="{{asset('/build/circus2.jpg')}}" alt="image nos artistes">
+                        </div>
+                        <div class="carousel-container d-flex justify-content-center align-items-center">
+                            <div class="carousel-content text-center">
+                                <h2>Nos artistes</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <a href="#artists" class="btn-get-started scrollto m-2">Voir les artistes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="artists">
+        <div class="container">
+            <div class="section-header">
+                <h3>Nos artistes</h3>
+                <p class="mb-5">Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam
+                    enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum
+                    velit export irure minim illum fore</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                {% for artist in artists %}
+
+                    <div class="col-lg-3 col-md-4 mb-5">
+                        <div class="artist-item">
+                            <img src="{{ artist.picture }}" alt="{{artist.name}}">
+                            <div class="artist-overlay">
+                                <div class="artist-info">
+                                    <h3 class="mt-2">{{artist.name}}</h3>
+                                    <h4>{{artist.performance}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

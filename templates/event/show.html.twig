@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spectacle | Wild Circus{% endblock %}
+
+{% block body %}
+
+    <section id="intro">
+        <div class="intro-container">
+            <div id="introCarousel" class="carousel carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-background d-flex justify-content-center">
+                            <img src="https://images.unsplash.com/photo-1533106958148-daaeab8b83fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
+                                 alt="">
+                        </div>
+                        <div class="carousel-container d-flex justify-content-center align-items-center">
+                            <div class="carousel-content text-center">
+                                <h2>Spectacle {{ event.name }}</h2>
+                                <p>{{ event.description }}</p>
+                                <a href="mailto:wildcircus@gmail.com" class="btn-get-started scrollto m-2"><i
+                                            class="fas fa-ticket-alt mr-2"></i>Réserver par mail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="event">
+
+            <h3>{{ event.name }}</h3>
+            <div class="row">
+
+                <div class="col-lg-5 col-md-6">
+                    <div class="event-img">
+                        <img src="{{ event.picture }}" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-6">
+                    <div class="event-content pt-3">
+                        <h2 class="mb-5">Un spectacle à ne pas manquer ...</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <p>Aut dolor id. Sint aliquam consequatur ex ex labore. Et quis qui dolor nulla dolores neque.
+                            Aspernatur consectetur omnis numquam quaerat. Sed fugiat nisi. Officiis veniam molestiae. Et
+                            vel ut quidem alias veritatis repudiandae ut fugit. Est ut eligendi aspernatur nulla
+                            voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus
+                            eum error. Et repudiandae eum iste qui et ut ab alias.</p>
+                        {% for representation in representations %}
+                            <ul class="representation-dates">
+
+                                <li class="pb-3">
+                                    <h2 class="m-0"> Le {{ representation.date|date('d/m/Y - H:i') }}</h2>
+                                </li>
+
+                                <li class="pb-3">
+                                    <h2 class="m-0">à {{ representation.city }}</h2>
+                                </li>
+                            </ul>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="section-header">
+                <h3>Informations</h3>
+            </div>
+
+            <div class="row infos mb-2 text-center">
+
+                <div class="col-md-4 mt-5">
+                    <div>
+                        <i class="fas fa-child"></i>
+                        <h2>{{ event.priceChildren }} €</h2>
+                        <p><em>Moins de 15 ans</em></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mt-5">
+                    <div class="border-infos">
+                        <i class="fas fa-male"></i>
+                        <h2>{{ event.priceAdult }} €</h2>
+                        <p><em>Plus de 15 ans</em></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mt-5">
+                    <div>
+                        <i class="far fa-clock"></i>
+                        <h2>{{ event.duration }} min</h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-5">
+            <a href="mailto:wildcircus@gmail.com" class="btn-get-started scrollto m-2"><i
+                        class="fas fa-ticket-alt mr-2"></i>Réserver par mail</a>
+            </div>
+
+
+            <section id="artists" >
+                <div class="container">
+                    <div class="section-header">
+                        <h3>Artistes en scène</h3>
+                        <p class="mb-5">Retrouvez tous ces artistes lors de la tournée de ce spectacle incontournable.</p>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+
+                        {% for artist in event.artists %}
+
+                            <div class="col-lg-3 col-md-4 mb-5">
+                                <div class="artist-item">
+                                    <img src="{{ artist.picture }}" alt="{{artist.name}}">
+                                    <div class="artist-overlay">
+                                        <div class="artist-info">
+                                            <h3 class="mt-2">{{artist.name}}</h3>
+                                            <h4>{{artist.performance}}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+            </section>
+
+
+        </section>
+
+
+
+    </div>
+
+
+
+{% endblock %}

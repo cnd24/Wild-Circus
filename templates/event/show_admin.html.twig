@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin | Spectacle{% endblock %}
+
+{% block header %}
+    {% include '/include/_navbar_admin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h2>Détail du spectacle</h2>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ event.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom du spectacle</th>
+                <td>{{ event.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ event.description }}</td>
+            </tr>
+            <tr>
+                <th>Durée <em>(en min)</em></th>
+                <td>{{ event.duration }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img src="{{ event.picture }}" alt=""></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="{{ path('event_index_admin') }}" class="btn-get-started m-3"><i class="fas fa-angle-left mr-3"></i>Retour à la liste</a>
+
+        <a href="{{ path('event_edit_admin', {'id': event.id}) }}" class="btn-get-started m-3"><i class="fas fa-pencil-alt mr-3"></i>Modifier</a>
+
+        {{ include('event/_delete_form.html.twig') }}
+
+    </div>
+{% endblock %}

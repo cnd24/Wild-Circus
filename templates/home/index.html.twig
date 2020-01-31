@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wild Circus Company{% endblock %}
+
+{% block body %}
+
+    <section id="intro">
+        <div class="intro-container">
+            <div id="introCarousel" class="carousel carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-background d-flex justify-content-center">
+                            <img src="{{asset('/build/circus1.jpg')}}" alt="Image de la home page">
+                        </div>
+                        <div class="carousel-container d-flex justify-content-center align-items-center">
+                            <div class="carousel-content text-center">
+                                <h2>Wild Circus Company</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <a href="{{ path('circus') }}" class="btn-get-started scrollto m-2">Découvrir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="events">
+        <div class="container">
+            <header>
+                <h3>Spectacles à la une</h3>
+            </header>
+
+            <div class="row porfolio-container">
+                {% for event in events %}
+                    <div class="col-lg-4 col-md-6 event-item filter-app">
+                        <div class="event-wrap m-0">
+                            <img src="{{ event.picture }}" class="img-fluid" alt="">
+                            <div class="event-info">
+                                <h4><a href="{{ path('event_show', {'id': event.id}) }}">{{ event.name }}</a></h4>
+                                <p class="p-2">{{ event.description|slice(0,150) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="artists" class="bg-section">
+        <div class="container">
+            <div class="section-header">
+                <h3>Nos artistes à la une</h3>
+                <p class="mb-5">Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam
+                    enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum
+                    velit export irure minim illum fore</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                {% for artist in artists %}
+
+                    <div class="col-lg-3 col-md-4 mb-5">
+                        <div class="artist-item">
+                            <img src="{{ artist.picture }}" alt="{{artist.name}}">
+                            <div class="artist-overlay">
+                                <div class="artist-info">
+                                    <h3 class="mt-2">{{artist.name}}</h3>
+                                    <h4>{{artist.performance}}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h3>Témoignages</h3>
+                <p>Sed tamen tempor magna labore dolore dolor sint tempor duis magna elit veniam aliqua esse amet veniam enim export quid quid veniam aliqua eram noster malis nulla duis fugiat culpa esse aute nulla ipsum velit export irure minim illum fore</p>
+            </div>
+            <div class="row">
+
+                <div class="testimonial-item col-3">
+                    <p><i class="fas fa-quote-left"></i>
+                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <i class="fas fa-quote-right"></i>
+                    </p>
+                    <h4>Saul Goodman</h4>
+                    <h4>Fev. 2019</h4>
+                </div>
+
+                <div class="testimonial-item col-3 active">
+                    <p><i class="fas fa-quote-left"></i>
+                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <i class="fas fa-quote-right"></i>
+                    </p>
+                    <h4>Sarah Willson</h4>
+                    <h4>Juillet 2019</h4>
+                </div>
+
+                <div class="testimonial-item col-3">
+                    <p><i class="fas fa-quote-left"></i>
+                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        <i class="fas fa-quote-right"></i>
+                    </p>
+                    <h4>Jena Karlis</h4>
+                    <h4>Dec. 2019</h4>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin | Index des artistes{% endblock %}
+
+{% block header %}
+    {% include '/include/_navbar_admin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2>Index des artistes</h2>
+        <a href="{{ path('artist_new_admin') }}" class="btn btn-get-started mb-3">Créer un artiste</a>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Performance</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for artist in artists %}
+                <tr>
+                    <td>{{ artist.id }}</td>
+                    <td>{{ artist.name }}</td>
+                    <td>{{ artist.performance }}</td>
+                    <td>
+                        <a href="{{ path('artist_show_admin', {'id': artist.id}) }}"><i class="far fa-eye mr-3"></i></a>
+                        <a href="{{ path('artist_edit_admin', {'id': artist.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Pas d'artiste disponible</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

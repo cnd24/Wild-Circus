@@ -1,0 +1,6 @@
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-get-started m-3"><i class="fas fa-check mr-3"></i>{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

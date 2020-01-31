@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos spectacles | Wild Circus{% endblock %}
+
+{% block body %}
+
+    <section id="intro">
+        <div class="intro-container">
+            <div id="introCarousel" class="carousel carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-background d-flex justify-content-center">
+                            <img src="{{asset('/build/circus3.jpg')}}" alt="Image nos spectacles">
+                        </div>
+                        <div class="carousel-container d-flex justify-content-center align-items-center">
+                            <div class="carousel-content text-center">
+                                <h2>Nos spectacles</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <a href="#events" class="btn-get-started scrollto m-2">Voir les spectacles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events">
+        <div class="container">
+
+            <header>
+                <h3>Nos spectacles</h3>
+            </header>
+
+            <div class="row porfolio-container">
+                {% for event in events %}
+                    <div class="col-lg-4 col-md-6 event-item filter-app">
+                        <div class="event-wrap m-0">
+                            <img src="{{ event.picture }}" class="img-fluid" alt="">
+                            <div class="event-info">
+                                <h4><a href="{{ path('event_show', {'id': event.id}) }}">{{ event.name }}</a></h4>
+                                <p class="p-2">{{ event.description|slice(0,150) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

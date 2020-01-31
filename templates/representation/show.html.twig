@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Representation{% endblock %}
+
+{% block body %}
+    <h1>Representation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ representation.id }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ representation.city }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ representation.date ? representation.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

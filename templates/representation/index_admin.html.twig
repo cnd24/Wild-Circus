@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin | Index des représentations{% endblock %}
+
+{% block header %}
+    {% include '/include/_navbar_admin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h2>Index des représentations</h2>
+
+        <a href="{{ path('representation_new_admin') }}" class="btn btn-get-started mb-3">Créer une représentation</a>
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ville</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for representation in representations %}
+                <tr>
+                    <td>{{ representation.id }}</td>
+                    <td>{{ representation.city }}</td>
+                    <td>{{ representation.date ? representation.date|date('Y-m-d H:i:s') : '' }}</td>
+                    <td>
+                        <a href="{{ path('representation_show_admin', {'id': representation.id}) }}"><i class="far fa-eye mr-3"></i></a>
+                        <a href="{{ path('representation_edit_admin', {'id': representation.id}) }}"><i class="fas fa-pencil-alt"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Pas de représentation disponible</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+    </div>
+{% endblock %}

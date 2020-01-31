@@ -1,0 +1,135 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spectacle | Wild Circus{% endblock %}
+
+{% block body %}
+
+    <section id="intro">
+        <div class="intro-container">
+            <div id="introCarousel" class="carousel carousel-fade">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-background d-flex justify-content-center">
+                            <img src="https://images.unsplash.com/photo-1533106958148-daaeab8b83fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80"
+                                 alt="">
+                        </div>
+                        <div class="carousel-container d-flex justify-content-center align-items-center">
+                            <div class="carousel-content text-center">
+                                <h2>Une expérience inoubliable depuis plus de 80 ans</h2>
+                                <p>Dumque ibi diu moratur commeatus opperiens, quorum translationem ex Aquitania verni
+                                    imbres solito crebriores prohibebant auctique torrentes, Herculanus advenit
+                                    protector domesticus, Hermogenis ex magistro equitum filius, apud </p>
+                                <a href="{{ path('contact') }}" class="btn-get-started scrollto m-2">Nous contacter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="history">
+
+
+            <header class="section-header">
+                <h3 class="mb-5">Notre histoire</h3>
+                <p class="mb-5">Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant
+                    vituperatoribus.</p>
+            </header>
+
+            <div class="row">
+
+                <div class="col-md-6 col-lg-4" data-wow-duration="1.4s">
+                    <div class="box">
+                        <h2 class="title mt-0">1851-1909</h2>
+                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-wow-duration="1.4s">
+                    <div class="box">
+                        <h2 class="title mt-0">1907-1934</h2>
+                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-wow-duration="1.4s">
+                    <div class="box">
+                        <h2 class="title mt-0">1934-1955</h2>
+                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-wow-duration="1.4s">
+                    <div class="box">
+                        <h2 class="title mt-0">1955-1999</h2>
+                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-wow-duration="1.4s">
+                    <div class="box">
+                        <h2 class="title mt-0">1955-1999</h2>
+                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
+                            excepturi sint occaecati cupiditate non provident</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+
+        <section id="event" class="installations">
+
+            <h3>Nos installations</h3>
+            <div class="row">
+
+                <div class="col-lg-5 col-md-6">
+                    <div class="event-img img-circus">
+                        <img src="{{ asset('/build/circus4.jpg') }}" alt="photo installation">
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-6">
+                    <div class="event-content pt-3">
+                        <h2 class="mb-5 mt-0">Un confort remarquable</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <p>Aut dolor id. Sint aliquam consequatur ex ex labore. Et quis qui dolor nulla dolores neque.
+                            Aspernatur consectetur omnis numquam quaerat. Sed fugiat nisi. Officiis veniam molestiae. Et
+                            vel ut quidem alias veritatis repudiandae ut fugit. Est ut eligendi aspernatur nulla
+                            voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus
+                            eum error. Et repudiandae eum iste qui et ut ab alias.</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row second-box">
+
+                <div class="col-lg-7 col-md-6">
+                    <div class="event-content pt-3">
+                        <h2 class="mb-5 mt-0">Un des plus grands de France</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua.</p>
+                        <p>Aut dolor id. Sint aliquam consequatur ex ex labore. Et quis qui dolor nulla dolores neque.
+                            Aspernatur consectetur omnis numquam quaerat. Sed fugiat nisi. Officiis veniam molestiae. Et
+                            vel ut quidem alias veritatis repudiandae ut fugit. Est ut eligendi aspernatur nulla
+                            voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus
+                            eum error. Et repudiandae eum iste qui et ut ab alias.</p>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-6">
+                    <div class="event-img circus-img">
+                        <img src="{{ asset('/build/circus5.jpg') }}" alt="photo installation">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}

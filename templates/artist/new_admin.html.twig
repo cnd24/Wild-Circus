@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin | Ajouter un nouvel artiste{% endblock %}
+
+{% block header %}
+    {% include '/include/_navbar_admin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+    <h2>Ajouter un nouvel artiste</h2>
+
+    {{ include('artist/_form.html.twig') }}
+
+    <a href="{{ path('artist_index_admin') }}" class="btn-get-started m-3"><i class="fas fa-angle-left mr-3"></i>Retour à la liste</a>
+
+    </div>
+{% endblock %}

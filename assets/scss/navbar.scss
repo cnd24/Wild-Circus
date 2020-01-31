@@ -1,0 +1,22 @@
+.nav-item a {
+  text-transform: uppercase;
+  font-family: $font-body;
+  font-weight: 600;
+}
+
+.navbar {
+  background-color: black;
+}
+
+.navbar-admin {
+
+  background-color: $secondary-color;
+
+  p {
+    color: $light-color-text;
+    opacity: 0.5;
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+}
