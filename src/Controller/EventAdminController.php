@@ -39,6 +39,7 @@ class EventAdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $event->setUpdatedAt(new \DateTime());
             $entityManager->persist($event);
             $entityManager->flush();
 
