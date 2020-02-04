@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class EventType extends AbstractType
 {
@@ -22,9 +23,14 @@ class EventType extends AbstractType
             ->add('name', TextType::class, ['label' => 'Nom'])
             ->add('description', TextareaType::class, ['label' => 'Description'])
             ->add('duration', IntegerType::class, ['label' => 'Durée (en min)'])
-            ->add('picture', TextType::class, ['label' => 'Photo'])
             ->add('priceChildren', IntegerType::class, ['label' => 'Prix enfant'])
             ->add('priceAdult', IntegerType::class, ['label' => 'Prix adulte'])
+            ->add('pictureFile', VichFileType::class, [
+                'label'             => 'Image',
+                'download_link'     => false,
+                'allow_delete'      => false,
+                'required' => false,
+            ])
         ;
     }
 
