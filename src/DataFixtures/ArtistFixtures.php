@@ -42,7 +42,7 @@ class ArtistFixtures extends Fixture
             $artist->setName($faker->name);
             $artist->setPerformance(self::PERFORMANCES[(rand(0,9))]);
             $artist->setPicture(self::PIC[(rand(0,5))]);
-
+            $artist->setUpdatedAt(new \DateTime());
             $manager->persist($artist);
             $this->addReference('artist'.$i, $artist);
         }
