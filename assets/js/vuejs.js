@@ -1,8 +1,9 @@
-let app = new Vue({
+let vm = new Vue({
     el: '#app',
     delimiters: ['{', '}'],
     data: {
-        messageEssai: 'Hello Vue!'
+        messageEssai: 'Hello Vue!',
+        success: true,
     }
 });
 

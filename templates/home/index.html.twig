@@ -131,8 +131,10 @@
     </section>
 
     <div id="app">
-        <input type="text" v-model="messageEssai">
-        <p>{ messageEssai }</p>
+        <input type="checkbox" v-model="success">
+        <div class="" :class="{border: success, rounded: !success}">
+            <p>{ messageEssai }</p>
+        </div>
     </div>
 
 
