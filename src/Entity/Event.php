@@ -6,9 +6,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use \DateTime;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
+ * @Vich\Uploadable
  */
 class Event
 {
@@ -49,6 +54,18 @@ class Event
      * @Assert\NotBlank(message="La photo du spectacle est obligatoire")
      */
     private $picture;
+
+    /**
+     * @Vich\UploadableField(mapping="event_file", fileNameProperty="picture")
+     * @var File|null
+     */
+    private $pictureFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Representation", mappedBy="event")
@@ -122,7 +139,7 @@ class Event
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
 
@@ -211,4 +228,36 @@ class Event
 
         return $this;
     }
+
+    /**
+     * @return File
+     */
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    /**
+     * @param File|null $image
+     */
+    public function setPictureFile(?File $image = null): void
+    {
+        $this->pictureFile = $image;
+
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
+    /**
+     * @param \DateTime $updatedAt
+     */
+    public function setUpdatedAt(DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+
+
+
 }

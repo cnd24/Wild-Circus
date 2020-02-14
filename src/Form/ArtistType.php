@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class ArtistType extends AbstractType
 {
@@ -17,7 +18,12 @@ class ArtistType extends AbstractType
         $builder
             ->add('name', TextType::class, ['label' => 'Nom'])
             ->add('performance', TextType::class, ['label' => 'Performance'])
-            ->add('picture', TextType::class, ['label' => 'Photo'])
+            ->add('pictureFile', VichFileType::class, [
+                'label'             => 'Image',
+                'download_link'     => false,
+                'allow_delete'      => false,
+                'required' => false,
+            ])
             ->add('events', EntityType::class, [
                 'class' => Event::class,
                 'label' => 'Spectacles',
