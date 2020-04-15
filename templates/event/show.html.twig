@@ -36,9 +36,9 @@
                 <div class="col-lg-5 col-md-6">
                     <div class="event-img">
                         {% if 'http' in event.picture %}
-                        <img src="{{ event.picture }}" alt="image de base">
+                        <img src="{{ event.picture }}" alt="image par défaut de l'évènement">
                         {% else %}
-                        <img src="{{ vich_uploader_asset(event, 'pictureFile') }}" alt="image uploadée">
+                        <img src="{{ vich_uploader_asset(event, 'pictureFile') }}" alt="image de l'évènement {{ event.name }}">
                         {% endif %}
                     </div>
                 </div>
