@@ -43,7 +43,11 @@
 
                     <div class="col-lg-3 col-md-4 mb-5">
                         <div class="artist-item">
-                            <img src="{{ artist.picture }}" alt="{{artist.name}}">
+                            {% if 'http' in artist.picture %}
+                                <img src="{{ artist.picture }}" alt="image par défaut de l'artiste">
+                            {% else %}
+                                <img src="{{ vich_uploader_asset(artist, 'pictureFile') }}" alt="image de l'artiste {{ artist.name }}">
+                            {% endif %}
                             <div class="artist-overlay">
                                 <div class="artist-info">
                                     <h3 class="mt-2">{{artist.name}}</h3>

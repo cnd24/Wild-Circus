@@ -57,6 +57,12 @@ class Event
 
     /**
      * @Vich\UploadableField(mapping="event_file", fileNameProperty="picture")
+     * @Assert\File(
+     *     maxSize="1000k",
+     *     maxSizeMessage="Le fichier excède 1000Ko.",
+     *     mimeTypes={"image/png", "image/jpeg", "image/jpg", "image/svg+xml", "image/gif"},
+     * mimeTypesMessage= "formats autorisés: png, jpeg, jpg, svg, gif"
+     * )
      * @var File|null
      */
     private $pictureFile;
