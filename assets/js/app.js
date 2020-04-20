@@ -23,3 +23,11 @@ const $ = require('jquery');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
+
+
+$(document).ready(function (){
+    $('li.active').removeClass('active');
+    $('a[href="' + location.pathname + '"]').closest('li').addClass('active');
+});
+
+
