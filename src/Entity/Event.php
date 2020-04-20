@@ -93,6 +93,11 @@ class Event
      */
     private $artists;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $basisPrice;
+
     public function __construct()
     {
         $this->representations = new ArrayCollection();
@@ -263,7 +268,32 @@ class Event
         $this->updatedAt = $updatedAt;
     }
 
+    public function getBasisPrice(): ?int
+    {
+        return $this->basisPrice;
+    }
 
+    public function setBasisPrice(int $basisPrice): self
+    {
+        $this->basisPrice = $basisPrice;
 
+        return $this;
+    }
 
+    const CATEGORIES_PEOPLE = ['adulte', 'enfant', 'groupe'];
+
+    public function getPriceByAge(string $type, int $basisPrice)
+    {
+        $this->basisPrice = $basisPrice;
+
+        if(!in_array($type, self::CATEGORIES_PEOPLE)){
+            throw new \ErrorException('Catégorie de personne non valide');
+        }
+        if ($type == self::CATEGORIES_PEOPLE[1]){
+            return intval($this->basisPrice * 0.5);
+        } elseif ($type == self::CATEGORIES_PEOPLE[2]){
+            return intval($this->basisPrice * 0.7);
+        }
+        return $this->basisPrice;
+    }
 }
