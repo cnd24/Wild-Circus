@@ -77,25 +77,16 @@ class Event
      */
     private $representations;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $priceChildren;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $priceAdult;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Artist", mappedBy="events")
-     */
-    private $artists;
 
     /**
      * @ORM\Column(type="integer")
      */
     private $basisPrice;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Artist", mappedBy="events")
+     */
+    private $artists;
 
     public function __construct()
     {
@@ -187,29 +178,6 @@ class Event
         return $this;
     }
 
-    public function getPriceChildren(): ?int
-    {
-        return $this->priceChildren;
-    }
-
-    public function setPriceChildren(?int $priceChildren): self
-    {
-        $this->priceChildren = $priceChildren;
-
-        return $this;
-    }
-
-    public function getPriceAdult(): ?int
-    {
-        return $this->priceAdult;
-    }
-
-    public function setPriceAdult(?int $priceAdult): self
-    {
-        $this->priceAdult = $priceAdult;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Artist[]
@@ -279,7 +247,7 @@ class Event
         return $this;
     }
 
-    const CATEGORIES_PEOPLE = ['adulte', 'enfant', 'groupe'];
+    const CATEGORIES_PEOPLE = ['adult', 'child', 'group'];
 
     public function getPriceByAge(string $type, int $basisPrice)
     {

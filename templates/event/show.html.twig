@@ -80,7 +80,7 @@
                 <div class="col-md-4 mt-5">
                     <div>
                         <i class="fas fa-child"></i>
-                        <h2>{{ event.priceChildren }} €</h2>
+                        <h2>{{ event.GetPriceByAge('child', event.basisPrice) }} €</h2>
                         <p><em>Moins de 15 ans</em></p>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
                 <div class="col-md-4 mt-5">
                     <div class="border-infos">
                         <i class="fas fa-male"></i>
-                        <h2>{{ event.priceAdult }} €</h2>
+                        <h2>{{ event.GetPriceByAge('adult', event.basisPrice) }} €</h2>
                         <p><em>Plus de 15 ans</em></p>
                     </div>
                 </div>
