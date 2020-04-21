@@ -46,20 +46,31 @@ class EventTest extends TestCase
         ];
     }
 
-/*    public function testComputeTVAProductTypeOther()
+    /**
+     * @dataProvider pricesForGroups
+     */
+    public function testPricesForGroups($basisPrice, $expectedPrice)
     {
-        $product = new Product('nom', 'other', 10);
-        $result = $product->computeTVA();
+        $event = new Event();
+        $result = $event->getPriceByAge(Event::CATEGORIES_PEOPLE[2], $basisPrice);
 
-        $this->assertSame(1.96, $result);
+        $this->assertSame($expectedPrice, $result);
     }
 
-    public function testNegativePriceComputeTVA()
+    public function pricesForGroups(){
+        return [
+            [10, 7],
+            [0, 0],
+            [20, 14]
+        ];
+    }
+
+    public function testWrongCategory()
     {
-        $product = new Product('nom', 'other', -1);
-        $this->expectException('LogicException');
-        $product->computeTVA();
-    }*/
+        $event = new Event();
+        $this->expectException('ErrorException');
+        $event->getPriceByAge('other', 10);
+    }
 
 
 }

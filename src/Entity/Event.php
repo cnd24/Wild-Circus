@@ -51,7 +51,6 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="La photo du spectacle est obligatoire")
      */
     private $picture;
 
