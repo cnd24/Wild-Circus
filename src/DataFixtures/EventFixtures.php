@@ -36,6 +36,7 @@ class EventFixtures extends Fixture implements DependentFixtureInterface
                 $event->setDuration($faker->numberBetween(30, 120));
                 $event->setPriceChildren($faker->numberBetween(10,15));
                 $event->setPriceAdult($faker->numberBetween(20, 30));
+                $event->setBasisPrice($faker->numberBetween(10, 30));
                 $event->setUpdatedAt(new \DateTime());
                 $event->setPicture(self::IMG[rand(0,9)]);
 

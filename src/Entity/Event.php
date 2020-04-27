@@ -51,7 +51,6 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="La photo du spectacle est obligatoire")
      */
     private $picture;
 
@@ -78,15 +77,11 @@ class Event
      */
     private $representations;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $priceChildren;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      */
-    private $priceAdult;
+    private $basisPrice;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Artist", mappedBy="events")
@@ -183,29 +178,6 @@ class Event
         return $this;
     }
 
-    public function getPriceChildren(): ?int
-    {
-        return $this->priceChildren;
-    }
-
-    public function setPriceChildren(?int $priceChildren): self
-    {
-        $this->priceChildren = $priceChildren;
-
-        return $this;
-    }
-
-    public function getPriceAdult(): ?int
-    {
-        return $this->priceAdult;
-    }
-
-    public function setPriceAdult(?int $priceAdult): self
-    {
-        $this->priceAdult = $priceAdult;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Artist[]
@@ -263,7 +235,32 @@ class Event
         $this->updatedAt = $updatedAt;
     }
 
+    public function getBasisPrice(): ?int
+    {
+        return $this->basisPrice;
+    }
 
+    public function setBasisPrice(int $basisPrice): self
+    {
+        $this->basisPrice = $basisPrice;
 
+        return $this;
+    }
 
+    const CATEGORIES_PEOPLE = ['adult', 'child', 'group'];
+
+    public function getPriceByAge(string $type, int $basisPrice)
+    {
+        $this->basisPrice = $basisPrice;
+
+        if(!in_array($type, self::CATEGORIES_PEOPLE)){
+            throw new \ErrorException('Catégorie de personne non valide');
+        }
+        if ($type == self::CATEGORIES_PEOPLE[1]){
+            return intval($this->basisPrice * 0.5);
+        } elseif ($type == self::CATEGORIES_PEOPLE[2]){
+            return intval($this->basisPrice * 0.7);
+        }
+        return $this->basisPrice;
+    }
 }

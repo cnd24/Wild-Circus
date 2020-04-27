@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArtistRepository")
@@ -43,6 +45,12 @@ class Artist
 
     /**
      * @Vich\UploadableField(mapping="artist_file", fileNameProperty="picture")
+     * @Assert\File(
+     *     maxSize="1000k",
+     *     maxSizeMessage="Le fichier excède 1000Ko.",
+     *     mimeTypes={"image/png", "image/jpeg", "image/jpg", "image/svg+xml", "image/gif"},
+     * mimeTypesMessage= "formats autorisés: png, jpeg, jpg, svg, gif"
+     * )
      * @var File|null
      */
     private $pictureFile;

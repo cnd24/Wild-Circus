@@ -23,8 +23,9 @@ class EventType extends AbstractType
             ->add('name', TextType::class, ['label' => 'Nom'])
             ->add('description', TextareaType::class, ['label' => 'Description'])
             ->add('duration', IntegerType::class, ['label' => 'Durée (en min)'])
-            ->add('priceChildren', IntegerType::class, ['label' => 'Prix enfant'])
-            ->add('priceAdult', IntegerType::class, ['label' => 'Prix adulte'])
+/*            ->add('priceChildren', IntegerType::class, ['label' => 'Prix enfant'])
+            ->add('priceAdult', IntegerType::class, ['label' => 'Prix adulte'])*/
+            ->add('basisPrice', IntegerType::class, ['label' => 'Prix de base'])
             ->add('pictureFile', VichFileType::class, [
                 'label'             => 'Image',
                 'download_link'     => false,
