@@ -30,7 +30,13 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td><img src="{{ vich_uploader_asset(event, 'pictureFile') }}" alt="{{ event.name }} picture"></td>
+                <td>
+                    {% if 'http' in event.picture %}
+                        <img src="{{ event.picture }}" alt="image par défaut de l'évènement">
+                    {% else %}
+                        <img src="{{ vich_uploader_asset(event, 'pictureFile') }}" alt="{{ event.name }} picture">
+                    {% endif %}
+                </td>
             </tr>
             </tbody>
         </table>

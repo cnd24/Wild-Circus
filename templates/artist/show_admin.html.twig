@@ -26,7 +26,14 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td><img src="{{ vich_uploader_asset(artist, 'pictureFile') }}" alt="{{ artist.name }}"></td>
+                <td>
+                    {% if 'http' in artist.picture %}
+                        <img src="{{ artist.picture }}" alt="image par défaut de l'évènement">
+                    {% else %}
+                        <img src="{{ vich_uploader_asset(artist, 'pictureFile') }}" alt="{{ artist.name }}">
+                    {% endif %}
+                </td>
+
             </tr>
             <tr>
                 <th>Spectacles</th>
